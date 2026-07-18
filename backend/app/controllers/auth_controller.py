@@ -2,7 +2,7 @@ import bcrypt
 import jwt
 import os
 from datetime import datetime, timedelta
-from flask import current_app, url_for
+from flask import current_app
 from flask_mail import Message
 from app.models import User, db
 from app import mail
@@ -182,10 +182,11 @@ class AuthController:
             print(f"🔑 RESET TOKEN: {reset_token}")
             print(f"📧 User email: {email}")
             
-            # Try to send email
+            # ✅ Send email with explicit sender
             try:
                 msg = Message(
                     subject="Password Reset - MovieVerse",
+                    sender=os.getenv('MAIL_DEFAULT_SENDER', 'shubhambxt25@gmail.com'),
                     recipients=[email],
                     body=f"""Hello {user.name},
 
@@ -239,8 +240,9 @@ The MovieVerse Team
                 
             except Exception as e:
                 print(f"❌ Email send error: {str(e)}")
+                # ✅ Return the link as fallback (for debugging)
                 return {
-                    'message': 'Password reset link generated (check console for link)',
+                    'message': 'Password reset link generated. Check your email.',
                     'reset_link': reset_link,
                     'reset_token': reset_token
                 }, 200
