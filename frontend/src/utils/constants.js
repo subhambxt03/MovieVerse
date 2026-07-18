@@ -1,5 +1,6 @@
-export const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
-export const TMDB_IMAGE_BASE_URL = process.env.REACT_APP_TMDB_IMAGE_BASE_URL || 'https://image.tmdb.org/t/p';
+
+export const API_BASE_URL = 'https://movieverse-zgi7.onrender.com/api';
+export const TMDB_IMAGE_BASE_URL = 'https://image.tmdb.org/t/p';
 
 // Image Sizes
 export const IMAGE_SIZES = {
