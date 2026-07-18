@@ -12,9 +12,8 @@ def register():
     password = data.get('password')
     
     if not all([name, email, password]):
-        return jsonify({'error': 'Missing required fields: name, email, and password are required'}), 400
+        return jsonify({'error': 'Missing required fields'}), 400
     
-    # AuthController.register returns (result_dict, status_code)
     result, status_code = AuthController.register(name, email, password)
     return jsonify(result), status_code
 
@@ -27,7 +26,6 @@ def login():
     if not all([email, password]):
         return jsonify({'error': 'Email and password are required'}), 400
     
-    # AuthController.login returns (result_dict, status_code)
     result, status_code = AuthController.login(email, password)
     return jsonify(result), status_code
 
