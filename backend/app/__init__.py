@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_jwt_extended import JWTManager
 from flask_cors import CORS
 from flask_migrate import Migrate
-from flask_mail import Mail  # ✅ Add this
+from flask_mail import Mail
 from dotenv import load_dotenv
 import os
 import pymysql
@@ -17,7 +17,7 @@ load_dotenv()
 db = SQLAlchemy()
 jwt = JWTManager()
 migrate = Migrate()
-mail = Mail()  # ✅ Add this
+mail = Mail()
 
 def create_app():
     app = Flask(__name__)
@@ -29,7 +29,7 @@ def create_app():
     app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
     app.config['JWT_ACCESS_TOKEN_EXPIRES'] = 86400
     
-    # ✅ Email Configuration
+    # Email Configuration
     app.config['MAIL_SERVER'] = os.getenv('MAIL_SERVER', 'smtp.gmail.com')
     app.config['MAIL_PORT'] = int(os.getenv('MAIL_PORT', 587))
     app.config['MAIL_USE_TLS'] = os.getenv('MAIL_USE_TLS', 'True').lower() == 'true'
@@ -49,11 +49,16 @@ def create_app():
     db.init_app(app)
     jwt.init_app(app)
     migrate.init_app(app, db)
-    mail.init_app(app)  # ✅ Add this
+    mail.init_app(app)
     
-    # CORS
+    # ✅ UPDATED CORS - Allow both localhost and Netlify
     CORS(app, 
-         origins=["http://localhost:3000", "http://127.0.0.1:3000"],
+         origins=[
+             "http://localhost:3000",
+             "http://127.0.0.1:3000",
+             "https://movieessverse.netlify.app",
+             "https://moviesverse.netlify.app"
+         ],
          methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
          allow_headers=["Content-Type", "Authorization", "Accept"],
          supports_credentials=True,
