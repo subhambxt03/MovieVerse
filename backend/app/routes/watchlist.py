@@ -5,7 +5,6 @@ from functools import wraps
 
 watchlist_bp = Blueprint('watchlist', __name__)
 
-# Custom decorator to handle JWT errors gracefully
 def auth_required(fn):
     @wraps(fn)
     def wrapper(*args, **kwargs):
