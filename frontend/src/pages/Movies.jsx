@@ -126,7 +126,6 @@ const Movies = () => {
     document.querySelector('input[name="search"]').value = '';
   };
 
-  // Split movies into two rows for horizontal scroll
   const splitMoviesIntoRows = (moviesList) => {
     const midPoint = Math.ceil(moviesList.length / 2);
     return {
@@ -166,9 +165,9 @@ const Movies = () => {
             </p>
           </div>
 
-          {/* Search and Filters - Inline Row */}
+       
           <div className="search-filters-row">
-            {/* Search Form with Icon on Right */}
+         
             <form className="search-form" onSubmit={handleSearchSubmit}>
               <input
                 type="text"
@@ -191,7 +190,7 @@ const Movies = () => {
               )}
             </form>
 
-            {/* Filters - Inline Row */}
+           ]
             <div className="filters-row">
               <select
                 value={filters.sort}
@@ -253,14 +252,14 @@ const Movies = () => {
               transition={{ duration: 0.5 }}
               className="movies-results"
             >
-              {/* Row 1 - Horizontal Scroll */}
+            
               {row1.length > 0 && (
                 <div className="movies-row">
                   <MovieSlider movies={row1} />
                 </div>
               )}
               
-              {/* Row 2 - Horizontal Scroll */}
+             ]
               {row2.length > 0 && (
                 <div className="movies-row">
                   <MovieSlider movies={row2} />

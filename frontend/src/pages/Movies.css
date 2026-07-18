@@ -39,7 +39,7 @@
   font-size: 16px;
 }
 
-/* ===== SEARCH & FILTERS - INLINE ROW ===== */
+
 .search-filters-row {
   display: flex;
   align-items: center;
@@ -48,7 +48,7 @@
   flex-wrap: wrap;
 }
 
-/* Search Form with Icon on Right */
+
 .search-form {
   display: flex;
   align-items: center;
@@ -81,7 +81,7 @@
   font-size: 14px;
 }
 
-/* Search Icon - Right Side */
+
 .search-btn {
   position: absolute;
   right: 12px;
@@ -103,7 +103,7 @@
   color: white;
 }
 
-/* Clear Search Button */
+
 .clear-search {
   position: absolute;
   right: 44px;
@@ -122,7 +122,7 @@
   color: #EF4444;
 }
 
-/* ===== FILTERS ROW ===== */
+
 .filters-row {
   display: flex;
   align-items: center;
@@ -159,7 +159,7 @@
   color: white;
 }
 
-/* ===== MOVIES RESULTS - 2 ROWS ===== */
+
 .movies-results {
   display: flex;
   flex-direction: column;
@@ -170,7 +170,7 @@
   margin: 0 -10px;
 }
 
-/* ===== NO RESULTS ===== */
+
 .no-results {
   text-align: center;
   padding: 60px 20px;
@@ -204,10 +204,6 @@
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
 }
-
-/* ======================================== */
-/* ===== RESPONSIVE DESIGN ===== */
-/* ======================================== */
 
 @media (max-width: 992px) {
   .search-filters-row {

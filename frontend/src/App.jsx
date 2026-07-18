@@ -17,14 +17,14 @@ import ForgotPassword from './pages/ForgotPassword';
 import ResetPassword from './pages/ResetPassword';
 import NotFound from './pages/NotFound';
 import './styles/global.css';
-import Profile from './pages/Profile';  // ✅ Correct
+import Profile from './pages/Profile';  
 function App() {
   return (
     <HelmetProvider>
       <AuthProvider>
         <Router>
           <div className="app">
-            <Navbar />  {/* ✅ Navbar is OUTSIDE Routes - Always visible */}
+            <Navbar /> 
             <main className="main-content">
               <Routes>
                 <Route path="/" element={<Home />} />

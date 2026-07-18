@@ -1,4 +1,3 @@
-/* Global Styles */
 .app {
   min-height: 100vh;
   display: flex;
@@ -12,7 +11,6 @@
   min-height: calc(100vh - 70px);
 }
 
-/* Scrollbar Styling */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -31,7 +29,7 @@
   background: #A855F7;
 }
 
-/* Animation Classes */
+
 .fade-in {
   animation: fadeIn 0.5s ease-in-out;
 }
@@ -47,7 +45,7 @@
   }
 }
 
-/* Glassmorphism */
+
 .glass {
   background: rgba(26, 34, 56, 0.8);
   backdrop-filter: blur(10px);
@@ -55,7 +53,7 @@
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Button Styles */
+
 .btn-primary {
   background: linear-gradient(135deg, #7C3AED, #8B5CF6);
   color: white;
@@ -89,7 +87,7 @@
   transform: translateY(-2px);
 }
 
-/* Card Styles */
+
 .card {
   background: #1A2238;
   border-radius: 12px;
@@ -104,7 +102,6 @@
   border-color: #8B5CF6;
 }
 
-/* Loading Skeleton */
 .skeleton {
   background: linear-gradient(90deg, #1A2238 25%, #2A3358 50%, #1A2238 75%);
   background-size: 200% 100%;
@@ -121,7 +118,6 @@
   }
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .main-content {
     padding-top: 60px;

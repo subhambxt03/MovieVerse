@@ -1,4 +1,3 @@
-/* ===== MOVIE CARD ===== */
 .movie-card {
   background: #1A2238;
   border-radius: 12px;
@@ -62,7 +61,7 @@
   left: 0;
 }
 
-/* ===== OVERLAY BUTTONS ===== */
+
 .movie-card-overlay {
   position: absolute;
   top: 10px;
@@ -121,7 +120,7 @@
   cursor: not-allowed;
 }
 
-/* ===== RATING ===== */
+
 .movie-card-rating {
   position: absolute;
   bottom: 10px;
@@ -135,7 +134,7 @@
   z-index: 2;
 }
 
-/* ===== INFO ===== */
+
 .movie-card-info {
   padding: 14px 16px;
   flex: 1;
@@ -196,18 +195,15 @@
   border-color: #8B5CF6;
 }
 
-/* ======================================== */
-/* ===== RESPONSIVE - MOBILE ONLY ===== */
-/* ======================================== */
 
 @media (max-width: 768px) {
   .movie-card {
-    max-width: 160px; /* ✅ Reduced width */
+    max-width: 160px; 
     border-radius: 10px;
   }
   
   .movie-card-poster {
-    max-height: 300px; /* ✅ More height */
+    max-height: 300px; 
   }
   
   .movie-card-poster img {
@@ -258,12 +254,12 @@
 
 @media (max-width: 480px) {
   .movie-card {
-    max-width: 140px; /* ✅ Further reduced width */
+    max-width: 140px; 
     border-radius: 8px;
   }
   
   .movie-card-poster {
-    max-height: 260px; /* ✅ More height */
+    max-height: 260px; 
   }
   
   .movie-card-poster img {

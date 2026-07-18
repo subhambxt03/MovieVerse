@@ -156,7 +156,6 @@ const Profile = () => {
     return path ? `https://image.tmdb.org/t/p/w185${path}` : '';
   };
 
-  // If editing, show edit page
   if (isEditing) {
     return (
       <div className="profile-page">
@@ -248,7 +247,7 @@ const Profile = () => {
     );
   }
 
-  // If changing password, show password page
+ 
   if (isChangingPassword) {
     return (
       <div className="profile-page">
@@ -295,7 +294,7 @@ const Profile = () => {
               </button>
             </form>
 
-            {/* Forgot Password Section */}
+         
             <div className="forgot-password-section">
               <p>Forgot your current password?</p>
               <button 
@@ -324,7 +323,6 @@ const Profile = () => {
             <BiArrowBack /> Back
           </button>
 
-          {/* Profile Header */}
           <div className="profile-header">
             <div className="profile-avatar-large">
               {user?.profile_image ? (
@@ -377,7 +375,7 @@ const Profile = () => {
           {error && <div className="alert alert-error">{error}</div>}
           {success && <div className="alert alert-success">{success}</div>}
 
-          {/* Account Settings - Above Statistics */}
+        
           <div className="account-settings">
             <h2>Account Settings</h2>
             <div className="settings-list">
@@ -405,7 +403,7 @@ const Profile = () => {
             </div>
           </div>
 
-          {/* Statistics Cards - One Row on Mobile */}
+          
           <div className="profile-stats-grid">
             <div className="stat-card">
               <div className="stat-card-icon">

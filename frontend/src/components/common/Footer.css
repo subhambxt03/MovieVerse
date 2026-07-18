@@ -1,8 +1,8 @@
 .footer {
   background: #0F172A;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
-  padding: 30px 0 0;  /* Reduced from 60px to 30px */
-  margin-top: 30px;   /* Reduced from 40px to 30px */
+  padding: 30px 0 0; 
+  margin-top: 30px;  
 }
 
 .footer-container {
@@ -23,29 +23,28 @@
 
 .footer-logo {
   color: white;
-  font-size: 24px;  /* Reduced from 28px */
+  font-size: 24px;  
   font-weight: 700;
-  margin-bottom: 8px;  /* Reduced from 15px */
+  margin-bottom: 8px;
   background: linear-gradient(135deg, #8B5CF6, #A855F7);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* ===== DESCRIPTION - ONE ROW ===== */
+
 .footer-description {
   color: #94A3B8;
   font-size: 14px;
   line-height: 1.4;
-  margin-bottom: 15px;  /* Reduced from 25px */
+  margin-bottom: 15px;  
   text-align: center;
-  white-space: nowrap;  /* Forces text to stay in one row */
+  white-space: nowrap;  
   max-width: 100%;
 }
 
-/* ===== SOCIAL LINKS - One Row ===== */
 .footer-social {
   display: flex;
-  gap: 16px;  /* Reduced from 20px */
+  gap: 16px;  
   justify-content: center;
   flex-wrap: nowrap;
 }
@@ -54,12 +53,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 38px;  /* Reduced from 44px */
-  height: 38px;  /* Reduced from 44px */
+  width: 38px;  
+  height: 38px;  
   background: rgba(255, 255, 255, 0.06);
   border-radius: 50%;
   color: #94A3B8;
-  font-size: 17px;  /* Reduced from 20px */
+  font-size: 17px; 
   transition: all 0.3s ease;
   text-decoration: none;
 }
@@ -72,8 +71,8 @@
 }
 
 .footer-bottom {
-  margin-top: 20px;  /* Reduced from 40px */
-  padding: 15px 0;   /* Reduced from 20px */
+  margin-top: 20px;  
+  padding: 15px 0;   
   border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
@@ -85,7 +84,7 @@
 
 .footer-copyright {
   color: #64748B;
-  font-size: 13px;  /* Reduced from 14px */
+  font-size: 13px;  
   text-align: center;
 }
 
@@ -101,7 +100,7 @@
 
   .footer-description {
     font-size: 12px;
-    white-space: normal;  /* Allow wrapping on mobile if needed */
+    white-space: normal;  
     padding: 0 10px;
   }
 

@@ -7,7 +7,7 @@ import {
   BiX,
   BiBookmark,
   BiLogOut
-} from 'react-icons/bi';  // ✅ Removed BiBell
+} from 'react-icons/bi'; 
 import { FiSearch } from 'react-icons/fi';
 import './Navbar.css';
 
@@ -21,7 +21,6 @@ const Navbar = () => {
   const profileRef = useRef(null);
   const searchTimeoutRef = useRef(null);
 
-  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -30,7 +29,6 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Handle click outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (profileRef.current && !profileRef.current.contains(event.target)) {
@@ -129,7 +127,7 @@ const Navbar = () => {
             />
           </form>
 
-          {/* ✅ Notification icon removed */}
+  
 
           {isAuthenticated ? (
             <div className="profile-container" ref={profileRef}>

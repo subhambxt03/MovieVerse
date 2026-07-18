@@ -161,7 +161,7 @@ const MovieDetails = () => {
           <BiArrowBack />
         </button>
 
-        {/* Hero Section */}
+        
         <div
           className="details-hero"
           style={{
@@ -238,10 +238,10 @@ const MovieDetails = () => {
           </div>
         </div>
 
-        {/* Details Sections */}
+     
         <div className="details-sections">
           <div className="details-container">
-            {/* Production Info */}
+          
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -281,7 +281,7 @@ const MovieDetails = () => {
               </div>
             </motion.div>
 
-            {/* Top Cast */}
+         
             {cast.length > 0 && (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -318,7 +318,6 @@ const MovieDetails = () => {
               </motion.div>
             )}
 
-            {/* Recommendations */}
             {recommendations.length > 0 && (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -331,7 +330,7 @@ const MovieDetails = () => {
               </motion.div>
             )}
 
-            {/* Similar Movies */}
+            
             {similar.length > 0 && (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -344,7 +343,7 @@ const MovieDetails = () => {
               </motion.div>
             )}
 
-            {/* ✅ REVIEWS - Fixed Display */}
+        
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -353,14 +352,14 @@ const MovieDetails = () => {
             >
               <h2 className="section-title">Reviews</h2>
               
-              {/* ✅ Show message if no reviews */}
+          
               {reviews.length === 0 ? (
                 <div className="no-reviews">
                   <p>No reviews available for this movie yet.</p>
                 </div>
               ) : (
                 <>
-                  {/* Desktop Grid */}
+                
                   <div className="reviews-grid">
                     {reviews.map((review) => (
                       <div key={review.id} className="review-card">
@@ -393,7 +392,7 @@ const MovieDetails = () => {
                     ))}
                   </div>
 
-                  {/* Mobile Slider */}
+               
                   <div className="reviews-slider-wrapper">
                     <div className="reviews-slider">
                       {reviews.map((review) => (

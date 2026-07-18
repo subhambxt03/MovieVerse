@@ -1,4 +1,3 @@
-/* ===== WATCHLIST - MOBILE CAROUSEL + DESKTOP GRID ===== */
 .watchlist-page {
   min-height: 100vh;
   background: #0B0F19;
@@ -62,9 +61,6 @@
   box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
 }
 
-/* ======================================== */
-/* ===== MOBILE: SINGLE MOVIE CAROUSEL ===== */
-/* ======================================== */
 .watchlist-carousel-wrapper {
   position: relative;
   display: flex;
@@ -86,7 +82,7 @@
   height: 100%;
 }
 
-/* ✅ Card: Wider on Mobile */
+
 .watchlist-carousel-card {
   background: #1A2238;
   border-radius: 16px;
@@ -101,7 +97,6 @@
   width: 100%;
 }
 
-/* ✅ Poster - Proportional */
 .watchlist-carousel-poster {
   width: 100%;
   max-width: 280px;
@@ -129,7 +124,7 @@
   font-size: 12px;
 }
 
-/* ✅ Info - Below Poster */
+
 .watchlist-carousel-info {
   width: 100%;
   color: white;
@@ -216,7 +211,6 @@
   background: rgba(239, 68, 68, 0.25);
 }
 
-/* ===== MOBILE DOTS ===== */
 .watchlist-carousel-dots {
   display: flex;
   justify-content: center;
@@ -242,7 +236,7 @@
   border-radius: 4px;
 }
 
-/* ===== MOBILE ARROWS ===== */
+
 .watchlist-arrow {
   background: rgba(0, 0, 0, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -267,9 +261,6 @@
   box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
 }
 
-/* ======================================== */
-/* ===== DESKTOP: GRID LAYOUT ===== */
-/* ======================================== */
 .watchlist-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -349,7 +340,7 @@
   font-size: 14px;
 }
 
-/* ✅ Desktop: View Details & Remove in One Row */
+
 .watchlist-actions-row {
   display: flex;
   gap: 8px;
@@ -397,7 +388,7 @@
   background: rgba(239, 68, 68, 0.2);
 }
 
-/* ===== EMPTY STATE ===== */
+
 .watchlist-empty {
   text-align: center;
   padding: 80px 20px;
@@ -415,7 +406,7 @@
   margin-bottom: 20px;
 }
 
-/* ✅ Desktop: Smaller Browse Movies Button */
+
 .btn-primary {
   padding: 12px 24px;
   background: linear-gradient(135deg, #7C3AED, #8B5CF6);
@@ -442,11 +433,6 @@
     font-size: 13px;
   }
 }
-
-/* ======================================== */
-/* ===== RESPONSIVE - MOBILE ONLY ===== */
-/* ======================================== */
-
 @media (max-width: 768px) {
   .watchlist-title {
     font-size: 28px;
@@ -494,19 +480,17 @@
   }
 }
 
-/* ✅ Mobile - Wider Cards with 100% Poster */
+
 @media (max-width: 480px) {
-  /* ✅ Change 1: Reduce container padding */
+
   .watchlist-container {
     padding: 0 6px;
   }
 
-  /* ✅ Change 2: Reduce arrow gap */
   .watchlist-carousel-wrapper {
     gap: 2px;
   }
 
-  /* ✅ Change 3: Wider card with full width */
   .watchlist-carousel-card {
     width: calc(100vw - 60px);
     max-width: none;
@@ -517,20 +501,18 @@
     border-radius: 12px;
   }
 
-  /* ✅ Change 4: Poster full width */
+
   .watchlist-carousel-poster {
     width: 100%;
     max-width: none;
   }
 
-  /* ✅ Change 5: Smaller arrows */
   .watchlist-arrow {
     width: 22px;
     height: 22px;
     font-size: 14px;
   }
 
-  /* Rest of the mobile styles */
   .watchlist-title {
     font-size: 22px;
   }
@@ -569,7 +551,7 @@
     width: 18px;
   }
   
-  /* Desktop grid on very small screens */
+  
   .watchlist-grid {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 12px;
@@ -588,7 +570,7 @@
   }
 }
 
-/* ✅ Medium screens (tablet) */
+
 @media (min-width: 481px) and (max-width: 768px) {
   .watchlist-grid {
     grid-template-columns: repeat(2, 1fr) !important;

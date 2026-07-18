@@ -125,7 +125,7 @@ const Watchlist = () => {
 
           {filteredMovies.length > 0 ? (
             <>
-              {/* ✅ MOBILE: Single Movie Carousel - Poster Left, Info Right */}
+          
               {isMobile ? (
                 <div className="watchlist-carousel-wrapper">
                   <button className="watchlist-arrow watchlist-arrow-left" onClick={goToPrevious}>
@@ -150,7 +150,7 @@ const Watchlist = () => {
 
                           return (
                             <div className="watchlist-carousel-card">
-                              {/* Poster - Left Side */}
+                     
                               <div className="watchlist-carousel-poster">
                                 {posterUrl ? (
                                   <img src={posterUrl} alt={movie?.title} />
@@ -159,7 +159,7 @@ const Watchlist = () => {
                                 )}
                               </div>
 
-                              {/* Info - Right Side */}
+                           
                               <div className="watchlist-carousel-info">
                                 <h3 className="watchlist-carousel-title">
                                   {movie?.title || 'Unknown'}
@@ -195,7 +195,7 @@ const Watchlist = () => {
                       </motion.div>
                     </AnimatePresence>
 
-                    {/* Dots */}
+                    
                     <div className="watchlist-carousel-dots">
                       {filteredMovies.map((_, index) => (
                         <button
@@ -212,7 +212,7 @@ const Watchlist = () => {
                   </button>
                 </div>
               ) : (
-                /* ✅ DESKTOP: Grid Layout with View Details & Remove in One Row */
+                
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -249,7 +249,7 @@ const Watchlist = () => {
                             </div>
                           </div>
                         </Link>
-                        {/* ✅ Desktop: View Details & Remove in One Row */}
+                      
                         <div className="watchlist-actions-row">
                           <Link 
                             to={`/movie/${item.movie_id}`} 
@@ -274,7 +274,7 @@ const Watchlist = () => {
             <div className="watchlist-empty">
               <h2>Your watchlist is empty</h2>
               <p>Start adding movies you want to watch!</p>
-              {/* ✅ Desktop: Smaller Browse Movies button */}
+             
               <Link to="/movies" className="btn-primary btn-small">
                 Browse Movies
               </Link>

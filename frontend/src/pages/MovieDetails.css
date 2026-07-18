@@ -5,7 +5,6 @@
   margin-top: -10px;
 }
 
-/* ===== BACK BUTTON - ICON ONLY ===== */
 .details-back-btn {
   display: inline-flex;
   align-items: center;
@@ -55,7 +54,6 @@
   margin-top: 20px;
 }
 
-/* Hero Section */
 .details-hero {
   position: relative;
   min-height: 80vh;
@@ -227,7 +225,6 @@
   color: white;
 }
 
-/* Sections */
 .details-sections {
   padding: 30px 0 20px;
 }
@@ -248,7 +245,7 @@
   margin-bottom: 20px;
 }
 
-/* Info Grid */
+
 .info-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -278,7 +275,6 @@
   font-weight: 500;
 }
 
-/* ===== CAST SLIDER ===== */
 .cast-slider-wrapper {
   position: relative;
   overflow-x: auto;
@@ -380,11 +376,7 @@
   text-overflow: ellipsis;
 }
 
-/* ======================================== */
-/* ===== REVIEWS - FIXED DISPLAY ===== */
-/* ======================================== */
 
-/* ✅ Reviews Grid - Desktop */
 .reviews-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -452,7 +444,7 @@
   line-height: 1.6;
 }
 
-/* ✅ Reviews Slider - Mobile */
+
 .reviews-slider-wrapper {
   position: relative;
   overflow-x: auto;
@@ -500,10 +492,6 @@
   transform: translateY(-4px);
   border-color: #8B5CF6;
 }
-
-/* ======================================== */
-/* ===== RESPONSIVE ===== */
-/* ======================================== */
 
 @media (max-width: 1024px) {
   .details-content {
@@ -627,7 +615,7 @@
     font-size: 20px;
   }
 
-  /* ✅ Reviews - Show slider on mobile, hide grid */
+  
   .reviews-grid {
     display: none !important;
   }
@@ -763,7 +751,7 @@
   }
 }
 
-/* ✅ Desktop: Show grid, hide slider */
+
 @media (min-width: 769px) {
   .reviews-slider-wrapper {
     display: none !important;

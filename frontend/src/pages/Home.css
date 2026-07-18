@@ -1,4 +1,3 @@
-/* ===== HOME PAGE ===== */
 .home-page {
   min-height: 100vh;
   padding-bottom: 40px;
@@ -74,14 +73,13 @@
   box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
 }
 
-/* ===== SECTIONS ===== */
 .home-section {
   max-width: 1400px;
   margin: 40px auto 0;
   padding: 0 20px;
 }
 
-/* ✅ Section Header - Title on Left, See All on Right */
+
 .section-header {
   display: flex;
   justify-content: space-between;
@@ -97,7 +95,6 @@
   margin: 0;
 }
 
-/* ✅ "See All" button on the right */
 .see-all {
   color: #8B5CF6;
   text-decoration: none;
@@ -112,9 +109,6 @@
   color: #A855F7;
 }
 
-/* ======================================== */
-/* ===== RESPONSIVE ===== */
-/* ======================================== */
 
 @media (max-width: 1024px) {
   .home-section {
@@ -152,9 +146,6 @@
   }
 }
 
-/* ======================================== */
-/* ===== SKELETON LOADING ===== */
-/* ======================================== */
 .home-skeleton {
   max-width: 1400px;
   margin: 0 auto;

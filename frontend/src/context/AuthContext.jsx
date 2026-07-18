@@ -129,7 +129,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  // ✅ Function to refresh user data
+ 
   const refreshUser = async () => {
     try {
       console.log('🔄 AuthContext: Refreshing user data...');
@@ -152,7 +152,7 @@ export const AuthProvider = ({ children }) => {
     logout,
     updateProfile,
     changePassword,
-    refreshUser,  // ✅ Add refreshUser to context
+    refreshUser,  
   };
 
   return (

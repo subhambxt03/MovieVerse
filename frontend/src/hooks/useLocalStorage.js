@@ -28,7 +28,7 @@ const useLocalStorage = (key, initialValue) => {
 
   const [storedValue, setStoredValue] = useState(readStoredValue);
 
-  // Update localStorage when state changes
+  
   useEffect(() => {
     if (typeof window === 'undefined') {
       return;

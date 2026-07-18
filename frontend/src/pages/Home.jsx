@@ -13,7 +13,7 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   
-  // ✅ Prevent duplicate calls
+
   const fetchedRef = useRef(false);
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const Home = () => {
         setLoading(true);
         setError(null);
 
-        // ✅ Load in PARALLEL for faster loading
+     
         const [trendingData, popularData] = await Promise.all([
           movieService.getTrending('day', 1),
           movieService.getPopular(1),
@@ -34,10 +34,9 @@ const Home = () => {
         setTrendingMovies(trendingData?.results || []);
         setPopularMovies(popularData?.results || []);
         
-        // ✅ Show content immediately after main data loads
         setLoading(false);
 
-        // ✅ Load recommendations in background (don't block UI)
+        
         if (trendingData?.results && trendingData.results.length > 0) {
           const firstMovie = trendingData.results[0];
           try {
@@ -56,13 +55,12 @@ const Home = () => {
 
     fetchMovies();
 
-    // ✅ Cleanup
     return () => {
       fetchedRef.current = false;
     };
   }, []);
 
-  // ✅ Loading skeleton
+
   if (loading) {
     return (
       <div className="home-loading">
@@ -109,7 +107,7 @@ const Home = () => {
       </Helmet>
 
       <div className="home-page">
-        {/* Hero Banner */}
+      
         {trendingMovies.length > 0 && (
           <motion.div
             initial={{ opacity: 0 }}
@@ -120,7 +118,7 @@ const Home = () => {
           </motion.div>
         )}
 
-        {/* Popular Movies Section - Horizontal Scroll */}
+        
         {popularMovies.length > 0 && (
           <motion.section
             className="home-section"
@@ -136,7 +134,7 @@ const Home = () => {
           </motion.section>
         )}
 
-        {/* Recommended Movies Section - Horizontal Scroll */}
+       
         {recommendedMovies.length > 0 && (
           <motion.section
             className="home-section"

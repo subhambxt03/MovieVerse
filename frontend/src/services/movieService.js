@@ -1,11 +1,11 @@
 import api from './api';
 
-// Persistent cache using localStorage
+
 class MovieCache {
   constructor() {
     this.cache = {};
-    this.pendingRequests = {}; // ✅ Track pending requests
-    this.ttl = 3600000; // 1 hour in milliseconds
+    this.pendingRequests = {}; 
+    this.ttl = 3600000; 
     this.loadFromStorage();
   }
 
@@ -57,7 +57,7 @@ class MovieCache {
     this.saveToStorage();
   }
 
-  // ✅ Add pending request tracking
+  
   getPending(key) {
     return this.pendingRequests[key];
   }
@@ -80,7 +80,6 @@ class MovieCache {
 
 const cache = new MovieCache();
 
-// ✅ Helper to deduplicate requests
 const dedupeRequest = async (cacheKey, fetchFn) => {
   // Check cache first
   const cached = cache.get(cacheKey);
