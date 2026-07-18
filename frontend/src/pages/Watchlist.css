@@ -1,0 +1,615 @@
+/* ===== WATCHLIST - MOBILE CAROUSEL + DESKTOP GRID ===== */
+.watchlist-page {
+  min-height: 100vh;
+  background: #0B0F19;
+  padding: 0 0 40px;
+}
+
+.watchlist-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  gap: 20px;
+}
+
+.watchlist-loading p {
+  color: #94A3B8;
+}
+
+.watchlist-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.watchlist-header {
+  margin-bottom: 30px;
+}
+
+.watchlist-title {
+  color: white;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.watchlist-count {
+  color: #94A3B8;
+  font-size: 16px;
+}
+
+.watchlist-search {
+  margin-bottom: 30px;
+}
+
+.watchlist-search .search-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px 20px;
+  background: #1A2238;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.watchlist-search .search-input:focus {
+  border-color: #8B5CF6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+/* ======================================== */
+/* ===== MOBILE: SINGLE MOVIE CAROUSEL ===== */
+/* ======================================== */
+.watchlist-carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 0;
+}
+
+.watchlist-carousel-container {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  min-height: 520px;
+}
+
+.watchlist-carousel-slide {
+  width: 100%;
+  height: 100%;
+}
+
+/* ✅ Card: Wider on Mobile */
+.watchlist-carousel-card {
+  background: #1A2238;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 20px;
+  gap: 16px;
+  min-height: 440px;
+  width: 100%;
+}
+
+/* ✅ Poster - Proportional */
+.watchlist-carousel-poster {
+  width: 100%;
+  max-width: 280px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.watchlist-carousel-poster img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+}
+
+.no-poster {
+  width: 100%;
+  aspect-ratio: 2/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1A2238;
+  color: #94A3B8;
+  font-size: 12px;
+}
+
+/* ✅ Info - Below Poster */
+.watchlist-carousel-info {
+  width: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 0 10px;
+}
+
+.watchlist-carousel-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+  text-align: center;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.watchlist-carousel-meta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.watchlist-carousel-year,
+.watchlist-carousel-rating {
+  color: #94A3B8;
+  font-size: 15px;
+}
+
+.watchlist-carousel-rating {
+  color: #FBBF24;
+}
+
+.watchlist-carousel-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 4px;
+  width: 100%;
+}
+
+.watchlist-carousel-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  text-decoration: none;
+  flex: 1;
+  min-width: 100px;
+  max-width: 160px;
+}
+
+.watchlist-carousel-btn.primary {
+  background: linear-gradient(135deg, #7C3AED, #8B5CF6);
+  color: white;
+}
+
+.watchlist-carousel-btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+}
+
+.watchlist-carousel-btn.danger {
+  background: rgba(239, 68, 68, 0.15);
+  color: #EF4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.watchlist-carousel-btn.danger:hover {
+  background: rgba(239, 68, 68, 0.25);
+}
+
+/* ===== MOBILE DOTS ===== */
+.watchlist-carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 15px;
+  padding: 5px 0;
+}
+
+.watchlist-carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.watchlist-carousel-dot.active {
+  background: #8B5CF6;
+  width: 24px;
+  border-radius: 4px;
+}
+
+/* ===== MOBILE ARROWS ===== */
+.watchlist-arrow {
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 20px;
+  backdrop-filter: blur(8px);
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+.watchlist-arrow:hover {
+  background: #8B5CF6;
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+}
+
+/* ======================================== */
+/* ===== DESKTOP: GRID LAYOUT ===== */
+/* ======================================== */
+.watchlist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.watchlist-card {
+  background: #1A2238;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+  max-width: 300px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.watchlist-card:hover {
+  transform: translateY(-8px);
+  border-color: #8B5CF6;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.watchlist-link {
+  text-decoration: none;
+  display: block;
+}
+
+.watchlist-poster {
+  aspect-ratio: 2/3;
+  overflow: hidden;
+  background: #0B0F19;
+  min-height: 340px;
+}
+
+.watchlist-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.watchlist-card:hover .watchlist-poster img {
+  transform: scale(1.05);
+}
+
+.watchlist-info {
+  padding: 14px 16px;
+}
+
+.watchlist-movie-title {
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.watchlist-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.watchlist-year {
+  color: #94A3B8;
+  font-size: 14px;
+}
+
+.watchlist-rating {
+  color: #FBBF24;
+  font-size: 14px;
+}
+
+/* ✅ Desktop: View Details & Remove in One Row */
+.watchlist-actions-row {
+  display: flex;
+  gap: 8px;
+  padding: 0 14px 14px 14px;
+}
+
+.watchlist-details-btn {
+  flex: 1;
+  padding: 8px 12px;
+  background: rgba(139, 92, 246, 0.15);
+  color: #8B5CF6;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.watchlist-details-btn:hover {
+  background: #8B5CF6;
+  color: white;
+  border-color: #8B5CF6;
+}
+
+.watchlist-remove-btn {
+  flex: 1;
+  padding: 8px 12px;
+  background: rgba(239, 68, 68, 0.1);
+  color: #EF4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.watchlist-remove-btn:hover {
+  background: rgba(239, 68, 68, 0.2);
+}
+
+/* ===== EMPTY STATE ===== */
+.watchlist-empty {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.watchlist-empty h2 {
+  color: white;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.watchlist-empty p {
+  color: #94A3B8;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/* ✅ Desktop: Smaller Browse Movies Button */
+.btn-primary {
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #7C3AED, #8B5CF6);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+}
+
+/* ✅ Desktop: Smaller Button */
+@media (min-width: 769px) {
+  .btn-primary.btn-small {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+}
+
+/* ======================================== */
+/* ===== RESPONSIVE - MOBILE ONLY ===== */
+/* ======================================== */
+
+@media (max-width: 768px) {
+  .watchlist-title {
+    font-size: 28px;
+  }
+
+  .watchlist-carousel-container {
+    min-height: 460px;
+  }
+
+  .watchlist-carousel-card {
+    padding: 20px 16px;
+    gap: 14px;
+    min-height: 400px;
+  }
+
+  .watchlist-carousel-poster {
+    max-width: 240px;
+    width: 100%;
+  }
+
+  .watchlist-carousel-title {
+    font-size: 18px;
+  }
+
+  .watchlist-carousel-meta {
+    font-size: 13px;
+    gap: 10px;
+  }
+
+  .watchlist-carousel-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+    min-width: 80px;
+    max-width: 140px;
+  }
+
+  .watchlist-arrow {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+  }
+  
+  .watchlist-actions-row {
+    display: none;
+  }
+}
+
+/* ✅ Mobile - Wider Cards with 100% Poster */
+@media (max-width: 480px) {
+  /* ✅ Change 1: Reduce container padding */
+  .watchlist-container {
+    padding: 0 6px;
+  }
+
+  /* ✅ Change 2: Reduce arrow gap */
+  .watchlist-carousel-wrapper {
+    gap: 2px;
+  }
+
+  /* ✅ Change 3: Wider card with full width */
+  .watchlist-carousel-card {
+    width: calc(100vw - 60px);
+    max-width: none;
+    margin: 0 auto;
+    padding: 18px 12px;
+    gap: 12px;
+    min-height: 400px;
+    border-radius: 12px;
+  }
+
+  /* ✅ Change 4: Poster full width */
+  .watchlist-carousel-poster {
+    width: 100%;
+    max-width: none;
+  }
+
+  /* ✅ Change 5: Smaller arrows */
+  .watchlist-arrow {
+    width: 22px;
+    height: 22px;
+    font-size: 14px;
+  }
+
+  /* Rest of the mobile styles */
+  .watchlist-title {
+    font-size: 22px;
+  }
+
+  .watchlist-carousel-container {
+    min-height: 440px;
+  }
+
+  .watchlist-carousel-title {
+    font-size: 16px;
+  }
+
+  .watchlist-carousel-meta {
+    font-size: 12px;
+    gap: 8px;
+  }
+
+  .watchlist-carousel-actions {
+    gap: 8px;
+  }
+
+  .watchlist-carousel-btn {
+    padding: 6px 14px;
+    font-size: 12px;
+    min-width: 70px;
+    max-width: 120px;
+    border-radius: 6px;
+  }
+
+  .watchlist-carousel-dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .watchlist-carousel-dot.active {
+    width: 18px;
+  }
+  
+  /* Desktop grid on very small screens */
+  .watchlist-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px;
+  }
+  
+  .watchlist-card {
+    max-width: 100%;
+  }
+  
+  .watchlist-poster {
+    min-height: 220px;
+  }
+  
+  .watchlist-actions-row {
+    display: none;
+  }
+}
+
+/* ✅ Medium screens (tablet) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .watchlist-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px;
+  }
+  
+  .watchlist-card {
+    max-width: 100%;
+  }
+  
+  .watchlist-poster {
+    min-height: 260px;
+  }
+  
+  .watchlist-actions-row {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) {
+  .watchlist-carousel-wrapper {
+    display: none;
+  }
+}

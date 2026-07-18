@@ -1,0 +1,233 @@
+/* ===== HOME PAGE ===== */
+.home-page {
+  min-height: 100vh;
+  padding-bottom: 40px;
+}
+
+.home-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  gap: 20px;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(139, 92, 246, 0.2);
+  border-top-color: #8B5CF6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.home-loading p {
+  color: #94A3B8;
+  font-size: 16px;
+}
+
+.home-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  text-align: center;
+}
+
+.home-error h2 {
+  color: white;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.home-error p {
+  color: #94A3B8;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.btn-primary {
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #7C3AED, #8B5CF6);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+}
+
+/* ===== SECTIONS ===== */
+.home-section {
+  max-width: 1400px;
+  margin: 40px auto 0;
+  padding: 0 20px;
+}
+
+/* ✅ Section Header - Title on Left, See All on Right */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.section-title {
+  color: white;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* ✅ "See All" button on the right */
+.see-all {
+  color: #8B5CF6;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.see-all:hover {
+  color: #A855F7;
+}
+
+/* ======================================== */
+/* ===== RESPONSIVE ===== */
+/* ======================================== */
+
+@media (max-width: 1024px) {
+  .home-section {
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-section {
+    padding: 0 12px;
+    margin: 30px auto 0;
+  }
+
+  .section-title {
+    font-size: 20px;
+  }
+
+  .see-all {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-section {
+    padding: 0 8px;
+    margin: 20px auto 0;
+  }
+
+  .section-title {
+    font-size: 17px;
+  }
+
+  .see-all {
+    font-size: 12px;
+  }
+}
+
+/* ======================================== */
+/* ===== SKELETON LOADING ===== */
+/* ======================================== */
+.home-skeleton {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.skeleton-hero {
+  width: 100%;
+  height: 500px;
+  background: linear-gradient(90deg, #1A2238 25%, #2A3358 50%, #1A2238 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 16px;
+  margin-bottom: 40px;
+}
+
+.skeleton-section {
+  margin-bottom: 40px;
+}
+
+.skeleton-title {
+  width: 200px;
+  height: 28px;
+  background: linear-gradient(90deg, #1A2238 25%, #2A3358 50%, #1A2238 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.skeleton-cards {
+  display: flex;
+  gap: 20px;
+  overflow: hidden;
+}
+
+.skeleton-card {
+  width: 180px;
+  height: 270px;
+  background: linear-gradient(90deg, #1A2238 25%, #2A3358 50%, #1A2238 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .skeleton-hero {
+    height: 300px;
+  }
+  
+  .skeleton-card {
+    width: 140px;
+    height: 210px;
+  }
+}
+
+@media (max-width: 480px) {
+  .skeleton-hero {
+    height: 200px;
+  }
+  
+  .skeleton-card {
+    width: 120px;
+    height: 180px;
+  }
+}
