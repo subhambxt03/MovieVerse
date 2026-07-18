@@ -29,7 +29,7 @@ def create_app():
     app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
     app.config['JWT_ACCESS_TOKEN_EXPIRES'] = 86400
     
-    # ✅ Email Configuration - READ FROM ENV
+    # ✅ Email Configuration
     app.config['MAIL_SERVER'] = os.getenv('MAIL_SERVER', 'smtp.gmail.com')
     app.config['MAIL_PORT'] = int(os.getenv('MAIL_PORT', 587))
     app.config['MAIL_USE_TLS'] = os.getenv('MAIL_USE_TLS', 'True').lower() == 'true'
@@ -45,13 +45,19 @@ def create_app():
     if not app.config['SQLALCHEMY_DATABASE_URI']:
         raise RuntimeError("DATABASE_URL is not set. Please check your .env file.")
     
-    # Initialize extensions
+    # ✅ Initialize extensions
     db.init_app(app)
     jwt.init_app(app)
     migrate.init_app(app, db)
-    mail.init_app(app)  # ✅ Initialize mail
     
-    # CORS
+    # ✅ Initialize mail only if configured
+    if app.config['MAIL_USERNAME'] and app.config['MAIL_PASSWORD']:
+        mail.init_app(app)
+        print("✅ Mail configured successfully")
+    else:
+        print("⚠️ Mail not configured. Email features will be disabled.")
+    
+    # ✅ CORS
     cors_origins = os.getenv('CORS_ORIGINS', 'http://localhost:3000').split(',')
     CORS(app, origins=cors_origins, supports_credentials=True)
     
