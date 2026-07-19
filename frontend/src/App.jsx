@@ -14,17 +14,18 @@ import Watchlist from './pages/Watchlist';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import ForgotPassword from './pages/ForgotPassword';
-import ResetPassword from './pages/ResetPassword';
+import ResetPasswordDirect from './pages/ResetPasswordDirect';
 import NotFound from './pages/NotFound';
+import Profile from './pages/Profile';
 import './styles/global.css';
-import Profile from './pages/Profile';  
+
 function App() {
   return (
     <HelmetProvider>
       <AuthProvider>
         <Router>
           <div className="app">
-            <Navbar /> 
+            <Navbar />
             <main className="main-content">
               <Routes>
                 <Route path="/" element={<Home />} />
@@ -33,7 +34,7 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/forgot-password" element={<ForgotPassword />} />
-                <Route path="/reset-password" element={<ResetPassword />} />
+                <Route path="/reset-password-direct" element={<ResetPasswordDirect />} />
                 <Route path="/watchlist" element={
                   <ProtectedRoute>
                     <Watchlist />

@@ -52,6 +52,20 @@ def forgot_password():
     result, status_code = AuthController.forgot_password(email)
     return jsonify(result), status_code
 
+@auth_bp.route('/reset-password-direct', methods=['POST'])
+def reset_password_direct():
+    """Direct password reset without email"""
+    data = request.get_json()
+    email = data.get('email')
+    new_password = data.get('new_password')
+    confirm_password = data.get('confirm_password')
+    
+    if not all([email, new_password, confirm_password]):
+        return jsonify({'error': 'Email, new password, and confirm password are required'}), 400
+    
+    result, status_code = AuthController.reset_password_direct(email, new_password, confirm_password)
+    return jsonify(result), status_code
+
 @auth_bp.route('/reset-password', methods=['POST'])
 def reset_password():
     data = request.get_json()

@@ -85,6 +85,22 @@ const authService = {
     }
   },
 
+  resetPasswordDirect: async (email, newPassword, confirmPassword) => {
+    console.log('🔑 authService: Direct password reset for:', email);
+    try {
+      const response = await api.post('/auth/reset-password-direct', { 
+        email, 
+        new_password: newPassword,
+        confirm_password: confirmPassword
+      });
+      console.log('✅ authService: Reset response:', response.data);
+      return response.data;
+    } catch (error) {
+      console.error('❌ authService: Reset error:', error.response?.data);
+      throw error;
+    }
+  },
+
   resetPassword: async (token, newPassword) => {
     console.log('🔑 authService: Resetting password with token:', token.substring(0, 20) + '...');
     try {

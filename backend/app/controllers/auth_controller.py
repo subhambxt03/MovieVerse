@@ -164,7 +164,7 @@ class AuthController:
             if not user:
                 return {'error': 'User not found'}, 404
             
-            # Generate reset token
+            # Generate reset token (for email-based reset)
             reset_token = jwt.encode(
                 {
                     'sub': str(user.id),
@@ -182,73 +182,63 @@ class AuthController:
             print(f"🔑 RESET TOKEN: {reset_token}")
             print(f"📧 User email: {email}")
             
-            # ✅ Send email with explicit sender
+            # Send email with reset link
             try:
                 msg = Message(
                     subject="Password Reset - MovieVerse",
                     sender=os.getenv('MAIL_DEFAULT_SENDER', 'shubhambxt25@gmail.com'),
                     recipients=[email],
-                    body=f"""Hello {user.name},
-
-You requested to reset your password for your MovieVerse account.
-
-Click the link below to reset your password:
-{reset_link}
-
-This link will expire in 1 hour.
-
-If you didn't request this, please ignore this email.
-
-Best regards,
-The MovieVerse Team
-""",
-                    html=f"""
-                    <html>
-                    <body style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #0B0F19; color: #FFFFFF;">
-                        <div style="text-align: center; padding: 20px 0;">
-                            <h1 style="color: #8B5CF6; font-size: 28px; margin: 0;">MovieVerse</h1>
-                            <p style="color: #94A3B8; font-size: 16px;">Password Reset</p>
-                        </div>
-                        <div style="background-color: #1A2238; padding: 30px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08);">
-                            <h2 style="color: #FFFFFF; font-size: 20px; margin-top: 0;">Hello {user.name},</h2>
-                            <p style="color: #D1D5DB; font-size: 16px; line-height: 1.6;">
-                                You requested to reset your password for your MovieVerse account.
-                            </p>
-                            <div style="text-align: center; margin: 30px 0;">
-                                <a href="{reset_link}" style="display: inline-block; padding: 14px 40px; background: linear-gradient(135deg, #7C3AED, #8B5CF6); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 16px;">
-                                    Reset Password
-                                </a>
-                            </div>
-                            <p style="color: #94A3B8; font-size: 14px;">
-                                This link will expire in <strong style="color: #8B5CF6;">1 hour</strong>.
-                            </p>
-                            <p style="color: #94A3B8; font-size: 14px; margin-top: 20px;">
-                                If you didn't request this, please ignore this email.
-                            </p>
-                        </div>
-                        <div style="text-align: center; padding: 20px 0; color: #64748B; font-size: 12px;">
-                            <p>&copy; 2024 MovieVerse. All rights reserved.</p>
-                        </div>
-                    </body>
-                    </html>
-                    """
+                    body=f"Reset your password: {reset_link}",
+                    html=f'<a href="{reset_link}">Reset Password</a>'
                 )
-                
                 mail.send(msg)
                 print(f"✅ Reset email sent to: {email}")
                 return {'message': 'Password reset email sent successfully'}, 200
-                
             except Exception as e:
                 print(f"❌ Email send error: {str(e)}")
-                # ✅ Return the link as fallback (for debugging)
                 return {
-                    'message': 'Password reset link generated. Check your email.',
-                    'reset_link': reset_link,
-                    'reset_token': reset_token
+                    'message': 'Password reset link generated',
+                    'reset_link': reset_link
                 }, 200
             
         except Exception as e:
             print(f"Forgot password error: {str(e)}")
+            return {'error': str(e)}, 500
+
+    @staticmethod
+    def reset_password_direct(email, new_password, confirm_password):
+        """Direct password reset without email verification"""
+        try:
+            print(f"Direct password reset requested for: {email}")
+            
+            # Check if passwords match
+            if new_password != confirm_password:
+                return {'error': 'Passwords do not match'}, 400
+            
+            # Validate password strength
+            if len(new_password) < 6:
+                return {'error': 'Password must be at least 6 characters'}, 400
+            
+            # Find user by email
+            user = User.query.filter_by(email=email).first()
+            if not user:
+                return {'error': 'User not found. Please check your email.'}, 404
+            
+            # Update password
+            salt = bcrypt.gensalt()
+            hashed_password = bcrypt.hashpw(new_password.encode('utf-8'), salt)
+            user.password_hash = hashed_password.decode('utf-8')
+            db.session.commit()
+            
+            print(f"✅ Password reset successful for: {email}")
+            
+            return {
+                'message': 'Password reset successfully! Please login with your new password.'
+            }, 200
+            
+        except Exception as e:
+            db.session.rollback()
+            print(f"❌ Reset password error: {str(e)}")
             return {'error': str(e)}, 500
 
     @staticmethod
