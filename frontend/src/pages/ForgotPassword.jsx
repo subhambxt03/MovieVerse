@@ -20,10 +20,14 @@ const ForgotPassword = () => {
     setLoading(true);
 
     try {
+      console.log('📧 Sending forgot password request for:', email);
       const result = await authService.forgotPassword(email);
+      console.log('✅ Forgot password response:', result);
+      
       setSuccess('Password reset link has been sent to your email.');
       toast.success('Check your email for reset instructions');
     } catch (error) {
+      console.error('❌ Forgot password error:', error);
       const errorMsg = error.response?.data?.error || 'Failed to send reset email';
       setError(errorMsg);
       toast.error(errorMsg);
@@ -70,7 +74,11 @@ const ForgotPassword = () => {
                   placeholder="Enter your email"
                 />
               </div>
-              <button type="submit" className="btn-primary auth-btn" disabled={loading}>
+              <button 
+                type="submit" 
+                className="btn-primary auth-btn" 
+                disabled={loading}
+              >
                 {loading ? 'Sending...' : 'Send Reset Link'}
               </button>
             </form>
