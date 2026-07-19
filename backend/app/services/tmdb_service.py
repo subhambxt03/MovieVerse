@@ -13,10 +13,11 @@ class TMDBService:
         
         # Cache configuration - longer TTL
         self.cache = {}
-        self.cache_ttl = 3600  # 1 hour cache (was 5 minutes)
+        self.cache_ttl = 3600
         
-        # Pre-fetch popular data on startup
-        self._prefetch_data()
+        # ✅ REMOVED: Pre-fetching to save memory
+        # self._prefetch_data()
+        print("✅ TMDB Service initialized (pre-fetching disabled)")
     
     def _get_cache_key(self, endpoint, params=None):
         """Generate cache key from endpoint and params"""
@@ -43,17 +44,6 @@ class TMDBService:
         """Store data in cache"""
         self.cache[key] = (data, datetime.now())
     
-    def _prefetch_data(self):
-        """Pre-fetch popular data on startup"""
-        try:
-            print("🔄 Pre-fetching popular movies...")
-            self.get_popular(1)
-            self.get_trending('day', 1)
-            self.get_genres()
-            print("✅ Pre-fetch complete")
-        except Exception as e:
-            print(f"⚠️ Pre-fetch error: {e}")
-    
     def _make_request(self, endpoint, params=None, use_cache=True):
         """Make a request to TMDB API with caching"""
         params = params or {}
@@ -74,7 +64,7 @@ class TMDBService:
         print(f"📡 API REQUEST: {endpoint}")
         
         try:
-            response = requests.get(url, params=params, timeout=5)  # Reduced timeout
+            response = requests.get(url, params=params, timeout=10)
             response.raise_for_status()
             data = response.json()
             
