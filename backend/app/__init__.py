@@ -7,6 +7,7 @@ from flask_mail import Mail
 from dotenv import load_dotenv
 import os
 import pymysql
+import sys
 
 # Install pymysql as MySQLdb
 pymysql.install_as_MySQLdb()
@@ -26,7 +27,7 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
-        'pool_size': 2,  # Reduce pool size
+        'pool_size': 1,
         'pool_recycle': 3600,
         'pool_pre_ping': True,
     }
@@ -57,10 +58,13 @@ def create_app():
     
     # Initialize mail only if configured
     if app.config['MAIL_USERNAME'] and app.config['MAIL_PASSWORD']:
-        mail.init_app(app)
-        print("✅ Mail configured successfully")
+        try:
+            mail.init_app(app)
+            print("✅ Mail configured successfully")
+        except Exception as e:
+            print(f"⚠️ Mail init error: {str(e)}")
     
-    # ✅ CORS - Allow all origins for testing
+    # CORS - Allow all origins for production
     CORS(app, origins="*", supports_credentials=True)
     
     # Register blueprints
@@ -78,7 +82,7 @@ def create_app():
     from app.middlewares.error_handler import register_error_handlers
     register_error_handlers(app)
     
-    # Health check route
+    # Simple health check
     @app.route('/api/health', methods=['GET'])
     def health_check():
         return {'status': 'healthy', 'message': 'MovieVerse API is running!'}, 200
